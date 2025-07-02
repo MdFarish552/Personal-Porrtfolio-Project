@@ -377,3 +377,20 @@ const revealTimeline = () => {
 
 window.addEventListener("scroll", revealTimeline);
 window.addEventListener("load", revealTimeline);
+
+// Make "Live Demo" and "Source Code" buttons open links via JS
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .querySelectorAll(
+      ".project-links a.live-demo, .project-links a.source-code"
+    )
+    .forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const url = btn.getAttribute("href");
+        if (url && url !== "#") {
+          window.open(url, "_blank");
+        }
+      });
+    });
+});
